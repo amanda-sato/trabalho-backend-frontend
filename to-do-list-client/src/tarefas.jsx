@@ -2,6 +2,7 @@ import { useMediaQuery } from "@mui/material";
 import {
     Datagrid,
     DateField,
+    AutocompleteInput,
     List,
     BooleanField,
     BooleanInput,
@@ -75,8 +76,12 @@ export const TarefaEdit = () => (
             <BooleanInput source="concluida"/>
             <TextInput source = "horario"/>
             <TextInput source = "prioridade"/>
-            <ReferenceInput source = "diaId" reference="dias"/>
-            <ReferenceInput source = "participanteId" reference="participantes"/>
+            <ReferenceInput source = "diaId" reference="dias">
+                <AutocompleteInput optionText="data" />
+            </ReferenceInput>
+            <ReferenceInput source = "participanteId" reference="participantes">
+                <AutocompleteInput optionText="nome" />
+            </ReferenceInput>
         </SimpleForm>
     </Edit>
 );
